@@ -8,7 +8,7 @@ let mb: Menubar | null = null;
 
 app.on("ready", () => {
   const tray = new Tray(
-    nativeImage.createFromPath(path.join(__dirname, "IconTemplate.png"))
+    nativeImage.createFromPath(path.join(__static, "IconTemplate.png"))
   );
 
   tray.on("mouse-down", () => {
