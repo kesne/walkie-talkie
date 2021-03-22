@@ -25,4 +25,4 @@ jobs:
         yarn run compile
         yarn run package --publish always
       env:
-        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        GH_TOKEN: ${{ secrets.github_token }}
