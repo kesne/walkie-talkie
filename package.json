@@ -1,6 +1,6 @@
 {
   "name": "walkie-talkie",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "You know what it is",
   "main": "index.js",
   "scripts": {
