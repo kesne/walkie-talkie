@@ -1,14 +1,15 @@
-import { app, Tray } from "electron";
+import { app, Tray, nativeImage } from "electron";
 import { Menubar, menubar } from "menubar";
 import * as path from "path";
 import { format as formatUrl } from "url";
-
-const isDevelopment = process.env.NODE_ENV !== "production";
+import is from "electron-is";
 
 let mb: Menubar | null = null;
 
 app.on("ready", () => {
-  const tray = new Tray(path.resolve(__dirname, "truwuTemplate.png"));
+  const tray = new Tray(
+    nativeImage.createFromPath(path.join(__dirname, "IconTemplate.png"))
+  );
 
   tray.on("mouse-down", () => {
     mb?.window?.webContents.send("trayMouseDown");
@@ -19,11 +20,12 @@ app.on("ready", () => {
 
   mb = menubar({
     tray,
-    index: isDevelopment
+    showDockIcon: false,
+    index: is.dev()
       ? `http:localhost:${process.env.ELECTRON_WEBPACK_WDS_PORT}`
       : formatUrl({
           pathname: path.join(__dirname, "index.html"),
-          protocol: "file",
+          protocol: "file:",
           slashes: true,
         }),
     tooltip: "WalkieTalkie",
@@ -32,7 +34,6 @@ app.on("ready", () => {
       width: 250,
       webPreferences: {
         nodeIntegration: true,
-        contextIsolation: false,
       },
     },
     showOnAllWorkspaces: true,
@@ -41,8 +42,9 @@ app.on("ready", () => {
   });
 
   mb.on("after-create-window", () => {
-    tray.removeAllListeners("double-click");
-    if (isDevelopment) {
+    // TODO:
+    // tray.removeAllListeners("double-click");
+    if (is.dev()) {
       mb?.window?.webContents.openDevTools({ mode: "undocked" });
     }
   });

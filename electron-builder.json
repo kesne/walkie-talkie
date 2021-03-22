@@ -1,0 +1,19 @@
+{
+	"appId": "rip.vapejuicejordan.walkietalkie",
+	"productName": "WalkieTalkie",
+	"compression": "store",
+	"mac": {
+	  "identity": null
+	},
+	"linux": {
+	  "target": "AppImage"
+	},
+	"publish": [
+	  {
+		"provider": "github",
+		"owner": "kesne",
+		"repo": "walkie-talkie",
+		"releaseType": "release"
+	  }
+	]
+  }
