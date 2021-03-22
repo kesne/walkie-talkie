@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import { ipcRenderer } from "electron";
 import AgoraRTC, { IMicrophoneAudioTrack } from "agora-rtc-sdk-ng";
 import { APP_ID, RtcTokenBuilder } from "./tokens";
-import { PromisePipeline } from "./promisePipeline";
+import { PromisePipeline } from "./PromisePipeline";
 
 const MAX_CHANNEL = 10;
 const userId = String(Date.now());
