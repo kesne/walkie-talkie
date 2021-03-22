@@ -1,7 +1,7 @@
 {
-  "name": "electron-boilerplate",
-  "version": "1.0.0",
-  "description": "",
+  "name": "walkie-talkie",
+  "version": "1.0.1",
+  "description": "You know what it is",
   "main": "index.js",
   "scripts": {
     "dev": "electron-webpack dev",
