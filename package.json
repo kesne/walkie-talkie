@@ -10,6 +10,16 @@
     "dist": "yarn compile && electron-builder",
     "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null"
   },
+  "build": {
+    "appId": "dev.gossipgirl.walkietalkie",
+    "productName": "Walkie Talkie",
+    "publish": {
+      "provider": "github"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
